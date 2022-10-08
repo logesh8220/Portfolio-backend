@@ -15,13 +15,14 @@ app.use(express.json())
 app.post('/api/sendmail' ,async function(req,res){
     try {
         let user = req.body.Email
-        let content = req.body.Subject
-        console.log(user,content)
+        let Subject = req.body.Subject
+        let Message = req.body.Message
+        console.log(user,Subject,Message)
         const maildetails = {
             usermail:user,
-            mailsubject:'Portfolio Email',
-            mailcontent:`<h1> from : ${user}</h1>
-                            <h1>${content}</h1>`,
+            mailsubject:Subject,
+            mailcontent:`<h1> For : ${Subject}</h1>
+                            <h1>${Message}</h1>`,
         };
          const mailresponse = await mailerfunc(maildetails)
          console.log(mailresponse)
@@ -32,4 +33,4 @@ app.post('/api/sendmail' ,async function(req,res){
     }
 })
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 6000)
