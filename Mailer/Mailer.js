@@ -14,8 +14,8 @@ const mailerfunc = async (requiredOptions) =>{
             }
         })
         let mailoptions ={
-            from:process.env.EMAIL,
-            to:usermail,
+            from:usermail,
+            to:process.env.EMAIL,
             subject:mailsubject,
             html:mailcontent,
         }
