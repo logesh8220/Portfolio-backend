@@ -21,7 +21,7 @@ app.post('/api/sendmail' ,async function(req,res){
         const maildetails = {
             usermail:user,
             mailsubject:Subject,
-            mailcontent:`<h1> For : ${Subject}</h1>
+            mailcontent:`<h1> From ${user} For : ${Subject}</h1>
                             <h1>${Message}</h1>`,
         };
          const mailresponse = await mailerfunc(maildetails)
